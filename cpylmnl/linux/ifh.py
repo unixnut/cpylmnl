@@ -73,3 +73,17 @@ IFF_VOLATILE	=		(NetDeviceFlags.IFF_LOOPBACK|NetDeviceFlags.IFF_POINTOPOINT|\
                                  NetDeviceFlags.IFF_MASTER|NetDeviceFlags.IFF_SLAVE|\
                                  NetDeviceFlags.IFF_RUNNING|NetDeviceFlags.IFF_LOWER_UP|\
                                  NetDeviceFlags.IFF_DORMANT)
+
+
+# RFC 2863 operational status
+IF_OPER_UNKNOWN = 0
+IF_OPER_NOTPRESENT = 1
+IF_OPER_DOWN = 2
+IF_OPER_LOWERLAYERDOWN = 3
+IF_OPER_TESTING = 4
+IF_OPER_DORMANT = 5
+IF_OPER_UP = 6
+
+# link modes
+IF_LINK_MODE_DEFAULT = 0
+IF_LINK_MODE_DORMANT = 1	# limit upward transition to dormant

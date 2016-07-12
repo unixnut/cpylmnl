@@ -76,8 +76,10 @@ def NLMSG_LENGTH(len):	return ((len) + NLMSG_HDRLEN)
 #define NLMSG_SPACE(len) NLMSG_ALIGN(NLMSG_LENGTH(len))
 def NLMSG_SPACE(len):	return NLMSG_ALIGN(NLMSG_LENGTH(len))
 #define NLMSG_DATA(nlh)  ((void*)(((char*)nlh) + NLMSG_LENGTH(0)))
-def NLMSG_DATA(nlh):	return cast(addressof(nlh), POINTER((c_ubyte * nlh.nlmsg_len))).contents
+def NLMSG_DATA(nlh):	return ctypes.c_void_p(ctypes.addressof(nlh) + NLMSG_LENGTH(0))
 # XXX: not implemented yet
+## def NLMSG_NEXT(nlh,len):
+##    pass
 #define NLMSG_OK(nlh,len) ((len) >= (int)ctypes.sizeof(struct nlmsghdr) && \
 #			   (nlh)->nlmsg_len >= ctypes.sizeof(struct nlmsghdr) && \
 #			   (nlh)->nlmsg_len <= (len))
