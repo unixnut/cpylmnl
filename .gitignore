@@ -5,3 +5,9 @@ build/
 dist/
 *.egg-info/
 tmp/
+\#*\#
+.*.sw?
+.swp
+## *.desktop
+*.old
+*.bak
